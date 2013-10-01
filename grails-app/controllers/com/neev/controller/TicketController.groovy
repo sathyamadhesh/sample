@@ -7,71 +7,64 @@ import com.neev.trac.User
 import com.neev.trac.Status
 import com.neev.trac.History
 import com.neev.service.HistoryService
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+
 class TicketController {
-  def historyService
+    def historyService
     def ticketService
+
     def index() { }
+
     JsonBuilder jsonbuilder=new JsonBuilder()
+    final Logger logger = LoggerFactory.getLogger(TicketController.class);
+
     def save()
     {
-        print "We are in Ticket Controller"
+        logger.info("in Ticket controller save ticket method")
+     
         def json = request.JSON
         def token = json.token
-        print token
+     
         if(token)
         {
-            print token
+             logger.info("token found")
             def userobj = User.findByAuthToken(token)
             def statusobj = Status.get(1)
             if(userobj)
             {
+                logger.info("User found")
                 Project project=Project.get(params.id)
-               
-                //               def assignto = json.assignto
-                //               def project1=Project.findByUserAndName(userobj,project)
-                //               def use = Project.get(params.id)
-                //               def proj=Project.findByUserAndName(userobj,use)
-                //               //def proj = Project.get(params.id)
-                //                //def projectobj = Project.findAllByUser(userobj)
-                //                
-                //                 if(proj)
-                print userobj
-                print userobj.id
-                print "ggggggggggggggggggggggg"
-                print project.user
-                println "ffffffffffffffffffffffffff"
-                println json.assignto
-                println "assignnnnnnnnnnnnnn Tooooooooo"
-                
-                
                 if(project.user==userobj)
                 {
-                    println "SomeThing is Happening"
+                    logger.info("Project found for the User to Raise ticket")
                     def ticket = new Ticket()
                     ticket.name = json.name
                     ticket.description = json.description
                     ticket.priority = json.priority
                     def mail = User.get(json.assignto)
-                    print mail.email
                     ticket.assignTo = User.get(json.assignto)
                     ticket.user = userobj
                     ticket.status = statusobj
                     ticket.project = project
+     
                     def stat = ticketService.save(ticket,ticket.assignTo) 
                     if(stat)
                     {
-                              
+                        logger.info("Ticket saved")      
                         jsonbuilder.response(status:"ok",code:"200")
                         render jsonbuilder.toString()
                     }
                     else
                     {
+                        logger.info("Ticket not saved")      
                         jsonbuilder.response(error:"Problem in Saving",code:"401")
                         render jsonbuilder.toString()
                     }
                 }
                 else
                 {
+                    logger.info("Project not found")
                     jsonbuilder.response(error:"Project is not available",code:"401");
                     render jsonbuilder.toString()
                 }           
@@ -79,19 +72,21 @@ class TicketController {
             }
             else
             {
+                logger.info("Token not found")
                 jsonbuilder.response(error:"invalid token",code:"401") 
                 render jsonbuilder.toString()
             }
         } 
         else
         {
+            logger.info("User not authenticated")
             jsonbuilder.response(error:"token not available",code:"401");
             render jsonbuilder.toString()
         }
     }
     def show()
     {
-        
+        logger.info("in Ticket controller show ticket method")
         def token = params.token
         if(token)
         {
@@ -103,6 +98,7 @@ class TicketController {
                 render l as JSON
                 else
                 {
+                    logger.info("No ticket is raised by You")      
                     jsonbuilder.response(error:"No ticket is raised by You",code:"401")
                     render jsonbuilder.toString()
                 }
@@ -121,15 +117,14 @@ class TicketController {
     }
     def getAllTicketsForAProject()
     {
-        println ("in controller")
+        logger.info("in Ticket controller get all tickets for a project method")
         def id = params.id
         def token = params.token
         if(token)
         {
-            println ("in controller")
+        
             def userobj = User.findByAuthToken(token)
-            println userobj
-            if(userobj)
+           if(userobj)
             {
                 def list= ticketService.getAllTicketsForAProject(id,userobj)
                 if(list)
@@ -138,6 +133,7 @@ class TicketController {
                 }
                 else
                 {
+                    logger.info("No tickets has been raised for this project")
                     jsonbuilder.response(error:"No List is found with the given Id",code:"401")
                     render jsonbuilder.toString()
                 }
@@ -157,6 +153,7 @@ class TicketController {
     }
     def getById()
     {
+        logger.info("in Ticket controller get ticket by its Id method")
         def token = params.token
         if(token)
         {
@@ -169,6 +166,7 @@ class TicketController {
                 render ticket as JSON
                 else
                 {
+                            logger.info("ticket not found with this Id")
                     jsonbuilder.response(error:"ticket is not available by this account",code:"401")
                     render jsonbuilder.toString()
                 }
@@ -187,11 +185,12 @@ class TicketController {
     }
     def getAllTicketsByUser()
     {
+        logger.info("in Ticket controller Get all tickets created by user method")
         def token = params.token
         if(token)
         {
             def userobj = User.findByAuthToken(token)
-            println userobj
+        
             if(userobj)
             {
                 def list= ticketService.getAllTicketsByUser(userobj)
@@ -220,13 +219,12 @@ class TicketController {
     }
     def getAllTicketsByAssignTo()
     {
-        //def id = params.id
+        
+        logger.info("in Ticket controller get all tickets assigned to user method")
         def token = params.token
         if(token)
         {
             def userobj = User.findByAuthToken(token)
-            println userobj
-            
             if(userobj)
             {
                 def list= ticketService.getAllTicketsByAssignTo(userobj)
@@ -257,28 +255,17 @@ class TicketController {
     
     def getAllTicketsByAssignToProject()
     {
-        println ("in controller")
+        logger.info("in Ticket controller get all tickets assigned to user for a project method")
         def token = params.token
         def projectid=params.id
         def projectobj=Project.get(projectid)
-        println("printing project")
-        println(projectobj)
-        
         if(token)
         {
             def userobj = User.findByAuthToken(token)
-            println userobj
-            
-            println(projectobj.user)
-           
-                
-            
             if(userobj)
             {
-                println("in calling service")
                 if(projectobj.user==userobj)
                 {
-                    println("in calling service")
                     def list= ticketService.getAllTicketsByAssignToProject(projectobj,userobj)
                     if(list)
                     {
@@ -306,12 +293,9 @@ class TicketController {
     }
     
     
-    
-    
-    
-    
     def remove()
     {
+        logger.info("in Ticket controller remove project method")
         def token = params.token
         if(token)
         {
@@ -342,9 +326,10 @@ class TicketController {
             render jsonbuilder.toString()
         }
     }
+
     def update()
     {
-      
+        logger.info("in Ticket controller update project method")
         def json = request.JSON
         def token = json.token
         if(token)
@@ -352,15 +337,12 @@ class TicketController {
             def userobj = User.findByAuthToken(token)
             def id = params.id
             def description=json.description
-            
-            
-            
-            
-            
+
             if(userobj)
             {
                 if(ticketService.update(id,description) )
                 {
+                    logger.info("ticket updated")
                     def history = new History()//for history updating
                     def statusobj = Status.get(1)
                     def projectobj = Project.findByUser(userobj)
@@ -370,16 +352,17 @@ class TicketController {
                     history.status = statusobj
                     history.project = projectobj
                     history.ticket = ticketobj
-                    println "In Controller "
                     def stat = historyService.save(history)
                     if(stat)
                     {
+                        logger.info("Added to Ticket history")
                         jsonbuilder.response(status:"OK",code:"200")    
                         render jsonbuilder.toString()
                     }
                 }
                 else
                 {
+                    logger.info("ticket not updated")
                     jsonbuilder.response(status:"Update Failed",code:"200").toString()    
                     render jsonbuilder.toString()
                 }

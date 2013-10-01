@@ -1,0 +1,82 @@
+2013-10-01 11:39:53,091 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Performing a module definition reload
+2013-10-01 11:39:53,093 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Loading resource declarations...
+2013-10-01 11:39:53,093 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Forgetting all known modules...
+2013-10-01 11:39:53,106 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Forgetting all known resources...
+2013-10-01 11:39:53,130 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] WARN  module.ModuleDeclarationsFactory  - 'grails.resources.modules' in config does not define any modules
+2013-10-01 11:39:53,680 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Finished module definition reload
+2013-10-01 11:41:36,122 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/conf/Config.groovy] changed. Applying changes to application.
+2013-10-01 11:41:36,500 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Performing a module definition reload
+2013-10-01 11:41:36,501 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Loading resource declarations...
+2013-10-01 11:41:36,501 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Forgetting all known modules...
+2013-10-01 11:41:36,501 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Forgetting all known resources...
+2013-10-01 11:41:36,524 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] WARN  module.ModuleDeclarationsFactory  - 'grails.resources.modules' in config does not define any modules
+2013-10-01 11:41:36,547 [FileSystemWatcher: files=#217 cl=groovy.lang.GroovyClassLoader@43e0ff38] INFO  resource.ResourceProcessor  - Finished module definition reload
+2013-10-01 11:42:51,292 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy] changed. Applying changes to application.
+2013-10-01 11:42:51,549 [Thread-9] ERROR compiler.GrailsProjectWatcher  - Compilation Error: startup failed:
+/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy: 4: unable to resolve class slf4j ,  unable to find class for annotation
+ @ line 4, column 1.
+   @slf4j
+   ^
+
+1 error
+
+2013-10-01 11:44:57,598 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy] changed. Applying changes to application.
+2013-10-01 11:50:43,081 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy] changed. Applying changes to application.
+2013-10-01 11:52:13,289 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy] changed. Applying changes to application.
+2013-10-01 11:53:16,483 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/UserController.groovy] changed. Applying changes to application.
+2013-10-01 12:06:07,946 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/conf/UrlMappings.groovy] changed. Applying changes to application.
+2013-10-01 12:06:14,182 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/ProjectController.groovy] changed. Applying changes to application.
+2013-10-01 12:06:40,420 [http-bio-8080-exec-3] INFO  controller.UserController  - in user controller adduser method
+2013-10-01 12:07:03,043 [http-bio-8080-exec-3] INFO  controller.UserController  - in user controller verifying account method
+2013-10-01 12:07:16,176 [http-bio-8080-exec-3] INFO  controller.UserController  - in user controller signin method
+2013-10-01 12:07:17,233 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - While processing /css/bootstrap.css, a resource was required but not found: /fonts/glyphicons-halflings-regular.eot
+2013-10-01 12:07:17,261 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/fonts/glyphicons-halflings-regular.eot]
+2013-10-01 12:07:17,262 [http-bio-8080-exec-3] WARN  mapper.cssrewriter  - Cannot resolve CSS resource, leaving link as is: resource:/fonts/glyphicons-halflings-regular.eot
+2013-10-01 12:07:17,264 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - While processing /css/bootstrap.css, a resource was required but not found: /fonts/glyphicons-halflings-regular.eot
+2013-10-01 12:07:17,264 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/fonts/glyphicons-halflings-regular.eot]
+2013-10-01 12:07:17,264 [http-bio-8080-exec-3] WARN  mapper.cssrewriter  - Cannot resolve CSS resource, leaving link as is: resource:/fonts/glyphicons-halflings-regular.eot?#iefix
+2013-10-01 12:07:17,266 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - While processing /css/bootstrap.css, a resource was required but not found: /fonts/glyphicons-halflings-regular.woff
+2013-10-01 12:07:17,267 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/fonts/glyphicons-halflings-regular.woff]
+2013-10-01 12:07:17,268 [http-bio-8080-exec-3] WARN  mapper.cssrewriter  - Cannot resolve CSS resource, leaving link as is: resource:/fonts/glyphicons-halflings-regular.woff
+2013-10-01 12:07:17,271 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - While processing /css/bootstrap.css, a resource was required but not found: /fonts/glyphicons-halflings-regular.ttf
+2013-10-01 12:07:17,271 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/fonts/glyphicons-halflings-regular.ttf]
+2013-10-01 12:07:17,271 [http-bio-8080-exec-3] WARN  mapper.cssrewriter  - Cannot resolve CSS resource, leaving link as is: resource:/fonts/glyphicons-halflings-regular.ttf
+2013-10-01 12:07:17,275 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - While processing /css/bootstrap.css, a resource was required but not found: /fonts/glyphicons-halflings-regular.svg
+2013-10-01 12:07:17,275 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/fonts/glyphicons-halflings-regular.svg]
+2013-10-01 12:07:17,275 [http-bio-8080-exec-3] WARN  mapper.cssrewriter  - Cannot resolve CSS resource, leaving link as is: resource:/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular
+2013-10-01 12:07:17,411 [http-bio-8080-exec-3] ERROR resource.ResourceMeta  - Resource not found: /js/bootstrap.min.js
+2013-10-01 12:07:17,412 [http-bio-8080-exec-3] WARN  util.ResourceMetaStore  - Cannot locate resource [/js/bootstrap.min.js]
+2013-10-01 12:07:17,412 [http-bio-8080-exec-3] WARN  resource.ResourceTagLib  - Invocation of <r:resource> for a resource that apparently doesn't exist: /trac/js/bootstrap.min.js
+2013-10-01 12:07:17,918 [http-bio-8080-exec-7] ERROR resource.ResourceMeta  - Resource not found: /js/bootstrap.min.js
+2013-10-01 12:07:17,946 [http-bio-8080-exec-7] WARN  util.ResourceMetaStore  - Cannot locate resource [/js/bootstrap.min.js]
+2013-10-01 12:09:19,659 [http-bio-8080-exec-1] INFO  controller.UserController  - in user controller logout method
+2013-10-01 12:09:41,046 [http-bio-8080-exec-5] INFO  controller.UserController  - in user controller adduser method
+2013-10-01 12:10:11,522 [http-bio-8080-exec-5] INFO  controller.UserController  - in user controller verifying account method
+2013-10-01 12:11:05,274 [http-bio-8080-exec-5] INFO  controller.UserController  - in user controller signin method
+2013-10-01 12:11:05,579 [http-bio-8080-exec-5] ERROR resource.ResourceMeta  - Resource not found: /js/bootstrap.min.js
+2013-10-01 12:11:05,580 [http-bio-8080-exec-5] WARN  util.ResourceMetaStore  - Cannot locate resource [/js/bootstrap.min.js]
+2013-10-01 12:11:05,580 [http-bio-8080-exec-5] WARN  resource.ResourceTagLib  - Invocation of <r:resource> for a resource that apparently doesn't exist: /trac/js/bootstrap.min.js
+2013-10-01 12:11:05,847 [http-bio-8080-exec-5] ERROR resource.ResourceMeta  - Resource not found: /js/bootstrap.min.js
+2013-10-01 12:11:05,848 [http-bio-8080-exec-5] WARN  util.ResourceMetaStore  - Cannot locate resource [/js/bootstrap.min.js]
+2013-10-01 12:13:33,495 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/conf/UrlMappings.groovy] changed. Applying changes to application.
+2013-10-01 12:22:04,098 [http-bio-8080-exec-6] ERROR errors.GrailsExceptionResolver  - NullPointerException occurred when processing request: [PUT] /trac/ticket/16
+Cannot set property 'description' on null object. Stacktrace follows:
+java.lang.NullPointerException: Cannot set property 'description' on null object
+	at com.neev.service.TicketService$_update_closure9.doCall(TicketService.groovy:100)
+	at com.neev.controller.TicketController.update(TicketController.groovy:362)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:200)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:724)
+2013-10-01 12:23:24,831 [http-bio-8080-exec-3] ERROR errors.GrailsExceptionResolver  - MissingPropertyException occurred when processing request: [POST] /trac/project
+No such property: logger for class: com.neev.controller.ProjectController. Stacktrace follows:
+groovy.lang.MissingPropertyException: No such property: logger for class: com.neev.controller.ProjectController
+	at com.neev.controller.ProjectController$$EOIzoEb2.save(ProjectController.groovy:19)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:200)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:724)
+2013-10-01 12:24:21,419 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/ProjectController.groovy] changed. Applying changes to application.
+2013-10-01 12:24:39,386 [http-bio-8080-exec-1] INFO  controller.UserController  - in project controller save project method

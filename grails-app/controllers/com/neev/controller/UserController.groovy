@@ -1,12 +1,16 @@
 package com.neev.controller
 import com.neev.trac.User
+import groovy.util.logging.Slf4j
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 class UserController {
     def userService
+    final Logger logger = LoggerFactory.getLogger(UserController.class);
     def addUser()
     {
-        println 'hello'
-        
+       
+        logger.info("in user controller adduser method")
         def user = new User()
         
         
@@ -14,7 +18,7 @@ class UserController {
         user.name = params.name
         user.email = params.email
         user.password = params.password
-       
+        logger.debug("Username {}. Password {}.", user.name, user.password);
         
             if(userService.addUser(user))
             {
@@ -31,6 +35,7 @@ class UserController {
     }
     def verifyingAccount()
     {
+        logger.info("in user controller verifying account method")
         def status = userService.verifyingAccount(params.token)
         switch(status)
         {
@@ -56,9 +61,11 @@ class UserController {
     }
     def signIn()
     {
+        logger.info("in user controller signin method")
         def user = new User()
         user.email=params.email
         user.password=params.password
+         logger.debug("Username {}. Password {}.", user.email, user.password);
         def user1 = userService.signIn(user)
         if(user1)
         {
@@ -80,7 +87,9 @@ class UserController {
     }
     def reset()
     {
+        logger.info("in user controller password reset method")
         def status=userService.reset(params.email)
+         logger.debug("Username {}", user.email);
         if(status)
         {
             flash.message = "Email Has been Sent to Your Mail"
@@ -94,6 +103,7 @@ class UserController {
     }
     def changePassword()
     {
+        logger.info("in user controller change password method")
         def user = userService.changePassword(params.token)
         if(user)
         {
@@ -107,6 +117,7 @@ class UserController {
     }
     def update()
     {
+        logger.info("in user controller update user method")
         def status = userService.update(params.email,params.password)
         if(status)
         {
@@ -121,6 +132,7 @@ class UserController {
     }
     def modifyPassword()
     {
+        logger.info("in user controller modifypassword method")
         def token=params.token
         
         User userobj = User.findByAuthToken(token)
@@ -144,6 +156,7 @@ class UserController {
     }
     def logout()
     {
+        logger.info("in user controller logout method")
         def token=params.token
         def user=User.findByAuthToken(token)
         if(user)

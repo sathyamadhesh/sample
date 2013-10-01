@@ -1,0 +1,2 @@
+2013-10-01 12:24:21,419 [Thread-9] INFO  compiler.GrailsProjectWatcher  - File [/home/neev/NetBeansProjects/trac/grails-app/controllers/com/neev/controller/ProjectController.groovy] changed. Applying changes to application.
+2013-10-01 12:24:39,386 [http-bio-8080-exec-1] INFO  controller.UserController  - in project controller save project method

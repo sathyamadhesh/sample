@@ -112,7 +112,17 @@ log4j = {
     //appenders {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
-
+appenders {
+        rollingFile name: "trac", maxFileSize: 102400,
+        file: "/home/neev/NetBeansProjects/trac/trac.log",
+        //layout: pattern(conversionPattern: '%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c{2} %m%n'),
+        maxBackupIndex: 10, append:true
+    }
+    
+	root {
+        info 'stdout', 'trac'
+		
+    }
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
@@ -124,4 +134,5 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+          
 }

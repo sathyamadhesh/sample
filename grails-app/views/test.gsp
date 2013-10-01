@@ -11,7 +11,7 @@ function CreateCtrl($scope,$http) {
               $scope.save = function() {
 	
 //        10.132.160.215
-            $http.put("/trac/ticket/16",$scope.json)
+            $http.post("/trac/project",$scope.json)
                 .success(function(data,status,headers,config){
                     alert(data.response.code);
               }).error(function(data,status,headers,config){
